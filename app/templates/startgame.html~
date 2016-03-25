@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+    <h1>Game will start with {{ problems }} {{prbtype}} wwth a maximum two value sum of {{ values }}</h1>
+</html>
+{% endblock %}
+
+

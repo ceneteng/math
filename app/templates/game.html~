@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+    <h1>The number {{ num0 }} plus the number {{ num1 }} equals {{ num2 }}</h1>
+	Checknum is {{ checknum }}
+
+   <form action="{{ url_for('inccook') }}" method="post">
+     
+      
+      <p><input type="submit"></p>
+
+</html>
+{% endblock %}
+
+

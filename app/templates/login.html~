@@ -1,0 +1,15 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Sign In</h1>
+  <form action="{{ url_for('hello') }}" method="post">
+      {{ form.hidden_tag() }}
+      <p>
+          Welcome to MathFun, Please enter your name:<br>
+          {{ form.name(size=80) }}<br>
+      </p>
+      <p><input type="submit"></p>
+  </form>
+	<code><pre>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>MathFun!</h1>
+  <form action="{{ url_for('start') }}" method="post">
+      {{ form.hidden_tag() }}
+      <p>
+          How many problems would you like to do?<br>
+          {{ form.problems(size=10) }}<br><br>
+          What type of problems would you like to do?<br>
+          {{ form.prbtype(size=10) }}<br><br>
+          What is the maximum sum?<br>
+	  {{ form.ceiling(size=3) }}<br><br>
+      </p>
+      <p><input type="submit"></p>
+  </form>
+
+{% endblock %}
