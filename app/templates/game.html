@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 <html>
-    <h1>The number {{ num0 }} plus the number {{ num1 }} equals {{ num2 }}</h1>
+    <h1>The number {{ num0 }} plus the number {{ num1 }} equals what???</h1>
 	Checknum is {{ checknum }} of {{ problems }} problems.
 
    <form action="{{ url_for('inccook') }}" method="post">
      
+    <p>
+        Enter the answer:<br>
+        {{ form.answer(size=5) }}<br>
+    </p>
       
       <p><input type="submit"></p>
 

@@ -14,3 +14,6 @@ class gameform(Form):
 
 class countform(Form):
     counter = IntegerField('counter')
+
+class playform(Form):
+    answer = IntegerField('answer')
