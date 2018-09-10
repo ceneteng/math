@@ -3,7 +3,7 @@
 from flask import render_template, flash, redirect, request, url_for
 from app import app
 from .forms import nameform, gameform
-from .math import getnums
+from .mymath import getnums
 
 
 
