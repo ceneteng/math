@@ -51,7 +51,7 @@ def inccook():
     response = app.make_response(redirect_to_game) 
     cookinc = int(request.cookies.get('counter')) + 1
     ansinc = request.form['answer']
-    totalinc = request.form['num2']
+    totalinc = request.form['total']
     response.set_cookie('counter',value = str(cookinc))
     response.set_cookie('answer', value = str(ansinc))
     if totalinc == ansinc:
@@ -71,6 +71,7 @@ def game():
     answer = int(request.cookies.get('answer'))
     if checknum < problems:	
         nums = getnums(ceiling)
+        total = nums[2]
         return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],checknum=checknum,problems = problems, answer=answer, form=form)
 
     else:

@@ -17,3 +17,4 @@ class countform(Form):
 
 class playform(Form):
     answer = IntegerField('answer')
+    total = IntegerField('total')
