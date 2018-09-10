@@ -21,7 +21,10 @@ def hello():
 @app.route('/confgame')
 def confgame():
     form = gameform()
-    return render_template('gameconf.html',form=form)
+    lastTotalProbs = int(request.cookies.get('counter'))
+    lastCorrect = int(request.cookies.get('correct'))
+    return render_template('gameconf.html', lastcor = lastCorrect, lastTot = lastTotalProbs, form=form)
+    lastcorrect = int(request.cookies.get('counter'))
 
 @app.route('/start/', methods=['POST'])
 def start():
