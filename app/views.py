@@ -23,7 +23,7 @@ def confgame():
     form = gameform()
     lastTotalProbs = int(request.cookies.get('counter'))
     lastCorrect = int(request.cookies.get('correct'))
-    return render_template('gameconf.html', lastcor = lastCorrect, lastTot = lastTotalProbs, form=form)
+    return render_template('gameconf.html', lastCorr = lastCorrect, lastTot = lastTotalProbs, form=form)
     lastcorrect = int(request.cookies.get('counter'))
 
 @app.route('/start/', methods=['POST'])
@@ -40,7 +40,7 @@ def setcook():
     ceiling = request.form['ceiling']
     redirect_to_game = redirect('/game')
     response = app.make_response(redirect_to_game)
-    response.set_cookie('counter',value = '1')
+    response.set_cookie('counter',value = '0')
     response.set_cookie('problems',value = problems)
     response.set_cookie('prbtype',value = prbtype)
     response.set_cookie('ceiling',value = ceiling)
