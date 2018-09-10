@@ -42,6 +42,7 @@ def setcook():
     response.set_cookie('prbtype',value = prbtype)
     response.set_cookie('ceiling',value = ceiling)
     response.set_cookie('answer',value = '0')
+    response.set_cookie('correct',value = '0')
     return response
 
 @app.route('/inccookie', methods=['GET', 'POST'])
@@ -50,8 +51,14 @@ def inccook():
     response = app.make_response(redirect_to_game) 
     cookinc = int(request.cookies.get('counter')) + 1
     ansinc = request.form['answer']
+    totalinc = request.form['num2']
     response.set_cookie('counter',value = str(cookinc))
     response.set_cookie('answer', value = str(ansinc))
+    if totalinc == ansinc:
+        countcor = int(request.cookies.get('correct')) + 1
+        response.set_cookie('correct',value = str(countcor))
+    else:
+       
     return response
 
 @app.route('/game', methods=['GET', 'POST'])
