@@ -1,7 +1,7 @@
 # app/forms.py
 
 from flask_wtf import Form
-from wtforms import StringField, SelectField, IntegerField
+from wtforms import StringField, SelectField, IntegerField, HiddenField
 from wtforms.validators import DataRequired
 
 class nameform(Form):
@@ -17,4 +17,4 @@ class countform(Form):
 
 class playform(Form):
     answer = IntegerField('answer')
-    total = IntegerField('total')
+    total = HiddenField()
