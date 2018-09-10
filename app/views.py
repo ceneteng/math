@@ -60,7 +60,7 @@ def game():
     ceiling = int(request.cookies.get('ceiling'))
     if checknum < problems:	
         nums = getnums(ceiling)
-        return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],checknum=checknum,problems = problems)
+        return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],checknum=checknum,problems = problems, form=form)
 
     else:
         return redirect(url_for('confgame'))
