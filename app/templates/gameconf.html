@@ -1,5 +1,6 @@
 <!-- extend base layout -->
 {% extends "base.html" %}
+<html>
 <h1>In the last round you got {{ lastCorr }} of  {{ lastTot }} problems correct!</h1>
 <br>
 {% block content %}
@@ -16,5 +17,5 @@
       </p>
       <p><input type="submit"></p>
   </form>
-
+</html>
 {% endblock %}
