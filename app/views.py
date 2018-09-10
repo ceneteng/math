@@ -49,9 +49,9 @@ def inccook():
     redirect_to_game = redirect('/game')
     response = app.make_response(redirect_to_game) 
     cookinc = int(request.cookies.get('counter')) + 1
-    ansinc = int(request.form['answer'])
+    ansinc = request.form['answer']
     response.set_cookie('counter',value = str(cookinc))
-    response.set_cookie('answer', value = int(ansinc))
+    response.set_cookie('answer', value = str(ansinc))
     return response
 
 @app.route('/game', methods=['GET', 'POST'])
