@@ -50,6 +50,7 @@ def inccook():
     response = app.make_response(redirect_to_game) 
     cookinc = int(request.cookies.get('counter')) + 1
     response.set_cookie('counter',value = str(cookinc))
+    response.set_cookie('answer', value = int(answer))
     return response
 
 @app.route('/game', methods=['GET', 'POST'])
@@ -59,9 +60,10 @@ def game():
     checknum = int(request.cookies.get('counter'))
     problems = int(request.cookies.get('problems'))
     ceiling = int(request.cookies.get('ceiling'))
+    prevans = int(request.cookies.get('answer'))
     if checknum < problems:	
         nums = getnums(ceiling)
-        return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],checknum=checknum,problems = problems, form=form)
+        return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],checknum=checknum,problems = problems, answer=answer, form=form)
 
     else:
         return redirect(url_for('confgame'))
