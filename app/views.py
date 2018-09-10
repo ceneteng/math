@@ -71,7 +71,7 @@ def game():
     answer = int(request.cookies.get('answer'))
     if checknum < problems:	
         nums = getnums(ceiling)
-        total = nums[2]
+        form = playform(total = nums[2])
         return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],checknum=checknum,problems = problems, answer=answer, form=form)
 
     else:
