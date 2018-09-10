@@ -56,7 +56,7 @@ def inccook():
     response.set_cookie('answer', value = str(ansinc))
     if totalinc == ansinc:
         countcor = int(request.cookies.get('correct')) + 1
-        response.set_cookie('correct',value = str(countcor))
+        response.set_cookie('correct',value = str(countcor)
     else:
        
     return response
