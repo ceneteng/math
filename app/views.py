@@ -21,6 +21,7 @@ def hello():
 @app.route('/confgame')
 def confgame():
     form = gameform()
+    name = str(request.cookies.get('name'))
     if 'counter' in request.cookies:
         lastTotalProbs = int(request.cookies.get('counter'))
         lastCorrect = int(request.cookies.get('correct'))
