@@ -27,6 +27,7 @@ def confgame():
         lastTotalProbs = int(request.cookies.get('counter'))
         lastCorrect = int(request.cookies.get('correct'))
         return render_template('gameconf.html', lastCorr = lastCorrect, lastTot = lastTotalProbs, form=form, name = name)
+        
     else:
         return render_template('gameconfstart.html', form=form, name=name)
 
