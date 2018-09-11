@@ -39,8 +39,6 @@ def start():
 
 @app.route('/delcookie', methods=['GET', 'POST'] )
 def delcook():
-
-    name = request.form['name']
     redirect_to_login = redirect('/')
     response = app.make_response(redirect_to_login)
     response.set_cookie('problems',max_age=0)
