@@ -125,8 +125,11 @@ def game():
             getop = getoper()
             print("getoper after")
             if getop == "sub":
+                print("subtracting")
                 nums = getnums(ceiling, prbtype)
+                print("gotnums")
                 form = playform(total = nums[2])
+                print("form")
                 if nums[0] > nums[1]:
                     msg = "Subtract {} from {}".format(nums[1], nums[0])
                     return render_template('game.html', num2=nums[2],
@@ -138,6 +141,7 @@ def game():
                                             checknum=checknum, problems = problems, answer=answer,
                                             msg = msg, form=form)
             else:
+                print("adding")
                 nums = getnums(ceiling, prbtype)
                 form = playform(total = nums[2])
                 msg = "Add {} and {}".format(nums[0], nums[1])
