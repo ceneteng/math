@@ -57,6 +57,7 @@ def excook():
     response.set_cookie('ceiling',value = ceiling)
     response.set_cookie('answer',value = '0')
     response.set_cookie('correct',value = '0')
+    response.set_cookie('counter',value= '0')
     return response
 
 @app.route('/inccookie', methods=['GET', 'POST'])
