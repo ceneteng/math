@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <html>
-    <h1><{{ text }}></h1>
+    <h1><{{ msg }}></h1>
 	Problem {{ checknum }} of {{ problems }}.
 
    <form action="{{ url_for('inccook') }}" method="post">
