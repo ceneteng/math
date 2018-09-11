@@ -112,17 +112,17 @@ def game():
         form = playform(total = nums[2])
         if prbtype == "subtraction":
             if nums[0] > nums[1]:
-                msg = "Subtract $s from $s" % (num[0], num[1])
+                msg = "Subtract $s from $s" % (nums[0], nums[1])
                 return render_template('game.html', num2=nums[2],
                                         checknum=checknum, problems = problems, answer=answer,
                                          msg = msg, form=form)
             elif nums[0] < nums[1]:
-                msg = "Subtract $s from $s" % (num[1], num[0])
+                msg = "Subtract $s from $s" % (nums[1], nums[0])
                 return render_template('game.html', num2=nums[2],
                                         checknum=checknum, problems = problems, answer=answer,
                                          msg = msg, form=form)
         else:
-            msg = "Add $s and $s" % (num[0], num[1])
+            msg = "Add $s and $s" % (nums[0], nums[1])
             return render_template('game.html',num2=nums[2],
                                     checknum=checknum,problems = problems, answer=answer, msg = textadd,
                                      form=form)
