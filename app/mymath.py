@@ -1,14 +1,22 @@
 # app/math.py
 import random
 
-def getnums(numin):
+def getnums(numin, prbin):
 
     tot = numin + 1
 
     while tot>numin:
 	num1 = random.randint(0,numin)
 	num2 = random.randint(0,numin)
-	tot = num1+num2
+
+	if prbin == 'addition':
+		tot = num1+num2
+	elif prbin == 'subtraction':
+		if num1>num2:
+			tot = num1-num2
+		else:
+			tot = num2-num1
+	
 
     eq = [num1,num2,tot]
 

@@ -27,7 +27,7 @@ def confgame():
         lastTotalProbs = int(request.cookies.get('counter'))
         lastCorrect = int(request.cookies.get('correct'))
         return render_template('gameconf.html', lastCorr = lastCorrect, lastTot = lastTotalProbs, form=form, name = name)
-        
+
     else:
         return render_template('gameconfstart.html', form=form, name=name)
 
@@ -104,12 +104,27 @@ def game():
     form = playform()
     checknum = int(request.cookies.get('counter'))
     problems = int(request.cookies.get('problems'))
+    prbtype = str(requst.cookies.get('prbtype'))
     ceiling = int(request.cookies.get('ceiling'))
     answer = int(request.cookies.get('answer'))
+    textsub = "Subtract {{ num0 }} from {{ num1 }}"
+    textadd = "Add {{ num0 }} and {{ num1 }}"
     if checknum < problems:	
-        nums = getnums(ceiling)
+        nums = getnums(ceiling, prbtype)
         form = playform(total = nums[2])
-        return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],checknum=checknum,problems = problems, answer=answer, form=form)
+        if prbtype == subtraction:
+            if nums[0] > nums[1]:
+                return render_template('game.html', num0=nums[0], num1=nums[1], num2=nums[2],
+                                        checknum=checknum, problems = problems, answer=answer,
+                                         msg = textsub, form=form)
+            elif nums[0] < nums[1]:
+                return render_template('game.html', num0=nums[1], num1=nums[0], num2=nums[2],
+                                        checknum=checknum, problems = problems, answer=answer,
+                                         msg = textsub, form=form)
+        else:
+            return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],
+                                    checknum=checknum,problems = problems, answer=answer, 
+                                    text = textadd, form=form)
 
     else:
         return redirect(url_for('confgame'))
