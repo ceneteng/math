@@ -38,7 +38,7 @@ def start():
     return render_template('startgame.html', problems=problems,prbtype=prbtype,values=values)
 
 @app.route('/delcookie', methods=['GET', 'POST'] )
-def setcook():
+def delcook():
 
     name = request.form['name']
     redirect_to_login = redirect('/')
