@@ -3,7 +3,7 @@
 from flask import render_template, flash, redirect, request, url_for
 from app import app
 from .forms import nameform, gameform, playform
-from .mymath import getnums
+from .mymath import getnums, genbool
 
 
 
@@ -108,9 +108,9 @@ def game():
     ceiling = int(request.cookies.get('ceiling'))
     answer = int(request.cookies.get('answer'))
     if checknum < problems:	
-        nums = getnums(ceiling, prbtype)
         form = playform(total = nums[2])
         if prbtype == "subtraction":
+            nums = getnums(ceiling, prbtype)
             if nums[0] > nums[1]:
                 msg = "Subtract {} from {}".format(nums[1], nums[0])
                 return render_template('game.html', num2=nums[2],
@@ -121,7 +121,28 @@ def game():
                 return render_template('game.html', num2=nums[2],
                                         checknum=checknum, problems = problems, answer=answer,
                                          msg = msg, form=form)
+        elif prbtype == "mixed":
+            getOp = genbool()
+            if getOp == "sub":
+                nums = getnums(ceiling, prbtype)
+                    if nums[0] > nums[1]:
+                        msg = "Subtract {} from {}".format(nums[1], nums[0])
+                        return render_template('game.html', num2=nums[2],
+                                                checknum=checknum, problems = problems, answer=answer,
+                                                msg = msg, form=form)
+                    elif nums[0] < nums[1]:
+                        msg = "Subtract {} from {}".format(nums[0], nums[1])
+                        return render_template('game.html', num2=nums[2],
+                                                checknum=checknum, problems = problems, answer=answer,
+                                                msg = msg, form=form)
+            else:
+                nums = getnums(ceiling, prbtype)
+                msg = "Add {} and {}".format(nums[0], nums[1])
+                return render_template('game.html',num2=nums[2],
+                                        checknum=checknum,problems = problems, answer=answer, msg = msg,
+                                            form=form)
         else:
+            nums = getnums(ceiling, prbtype)
             msg = "Add {} and {}".format(nums[0], nums[1])
             return render_template('game.html',num2=nums[2],
                                     checknum=checknum,problems = problems, answer=answer, msg = msg,

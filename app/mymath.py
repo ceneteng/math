@@ -1,6 +1,18 @@
 # app/math.py
 import random
 
+def genbool:
+
+	myChoice = random.choice([True, False])
+	opreturn = ""
+
+	if myChoice == True:
+		opreturn = "add"
+	else:
+		opreturn = "sub"
+
+	return opreturn
+
 def getnums(numin, prbin):
 
     tot = numin + 1
