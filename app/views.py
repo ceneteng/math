@@ -21,10 +21,12 @@ def hello():
 @app.route('/confgame')
 def confgame():
     form = gameform()
-    lastTotalProbs = int(request.cookies.get('counter'))
-    lastCorrect = int(request.cookies.get('correct'))
-    return render_template('gameconf.html', lastCorr = lastCorrect, lastTot = lastTotalProbs, form=form)
-    lastcorrect = int(request.cookies.get('counter'))
+    if 'counter' in request.cookies:
+        lastTotalProbs = int(request.cookies.get('counter'))
+        lastCorrect = int(request.cookies.get('correct'))
+        return render_template('gameconf.html', lastCorr = lastCorrect, lastTot = lastTotalProbs, form=form)
+    else:
+        return render_template('gameconfstart.html', form=form)
 
 @app.route('/start/', methods=['POST'])
 def start():
@@ -35,12 +37,19 @@ def start():
 
 @app.route('/cookie', methods=['GET', 'POST'] )
 def setcook():
+
+    name = request.form['name']
+    redirect_to_setup = redirect('/confgame')
+    response = app.make_response(redirect_to_setup)
+    response.set_cookie('name', vlaue = name)
+    return response
+
+def excook()
     problems = request.form['problems']
     prbtype = request.form['prbtype']
     ceiling = request.form['ceiling']
     redirect_to_game = redirect('/game')
     response = app.make_response(redirect_to_game)
-    response.set_cookie('counter',value = '0')
     response.set_cookie('problems',value = problems)
     response.set_cookie('prbtype',value = prbtype)
     response.set_cookie('ceiling',value = ceiling)
