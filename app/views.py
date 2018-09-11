@@ -8,6 +8,7 @@ from .mymath import getnums
 
 
 @app.route('/')
+@app.route('/index')
 def index():
   
     form = nameform()
