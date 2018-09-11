@@ -104,7 +104,7 @@ def game():
     form = playform()
     checknum = int(request.cookies.get('counter'))
     problems = int(request.cookies.get('problems'))
-    prbtype = str(requst.cookies.get('prbtype'))
+    prbtype = str(request.cookies.get('prbtype'))
     ceiling = int(request.cookies.get('ceiling'))
     answer = int(request.cookies.get('answer'))
     textsub = "Subtract {{ num0 }} from {{ num1 }}"
