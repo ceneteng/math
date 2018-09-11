@@ -107,7 +107,6 @@ def game():
     ceiling = int(request.cookies.get('ceiling'))
     answer = int(request.cookies.get('answer'))
     if checknum < problems:	
-       
         if prbtype == "subtraction":
             nums = getnums(ceiling, prbtype)
             form = playform(total = nums[2])
@@ -122,7 +121,9 @@ def game():
                                         checknum=checknum, problems = problems, answer=answer,
                                          msg = msg, form=form)
         elif prbtype == "mixed":
+            print("getoper before")
             getop = getoper()
+            print("getoper after")
             if getop == "sub":
                 nums = getnums(ceiling, prbtype)
                 form = playform(total = nums[2])
