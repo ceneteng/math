@@ -44,7 +44,7 @@ def setcook():
     response.set_cookie('name', vlaue = name)
     return response
 
-def excook()
+def excook():
     problems = request.form['problems']
     prbtype = request.form['prbtype']
     ceiling = request.form['ceiling']
