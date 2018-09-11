@@ -125,8 +125,9 @@ def game():
             getop = getoper()
             print("getoper after")
             if getop == "sub":
+                intype = "subtraction"
                 print("subtracting")
-                nums = getnums(ceiling, prbtype)
+                nums = getnums(ceiling, intype)
                 print("gotnums")
                 form = playform(total = nums[2])
                 print("form")
@@ -142,7 +143,8 @@ def game():
                                             msg = msg, form=form)
             else:
                 print("adding")
-                nums = getnums(ceiling, prbtype)
+                intype = "addition"
+                nums = getnums(ceiling, intype)
                 form = playform(total = nums[2])
                 msg = "Add {} and {}".format(nums[0], nums[1])
                 return render_template('game.html',num2=nums[2],
