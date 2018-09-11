@@ -37,6 +37,20 @@ def start():
     values = request.form['ceiling']
     return render_template('startgame.html', problems=problems,prbtype=prbtype,values=values)
 
+@app.route('/delcookie', methods=['GET', 'POST'] )
+def setcook():
+
+    name = request.form['name']
+    redirect_to_login = redirect('/')
+    response = app.make_response(redirect_to_login)
+    response.set_cookie('problems',max_age=0)
+    response.set_cookie('prbtype',max_age=0)
+    response.set_cookie('ceiling',max_age=0)
+    response.set_cookie('answer',max_age=0)
+    response.set_cookie('correct',max_age=0)
+    response.set_cookie('counter',max_age=0)
+    return response
+
 @app.route('/cookie', methods=['GET', 'POST'] )
 def setcook():
 
