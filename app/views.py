@@ -123,8 +123,8 @@ def game():
                                         checknum=checknum, problems = problems, answer=answer,
                                          msg = msg, form=form)
         elif prbtype == "mixed":
-            getOp = genbool()
-            if getOp == "sub":
+            getop = getoper()
+            if getop == "sub":
                 nums = getnums(ceiling, prbtype)
                 form = playform(total = nums[2])
                 if nums[0] > nums[1]:
