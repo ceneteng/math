@@ -122,7 +122,7 @@ def game():
                                         checknum=checknum, problems = problems, answer=answer,
                                          msg = msg, form=form)
         else:
-            msg = "Add {}}and {}".format(nums[0], nums[1])
+            msg = "Add {} and {}".format(nums[0], nums[1])
             return render_template('game.html',num2=nums[2],
                                     checknum=checknum,problems = problems, answer=answer, msg = textadd,
                                      form=form)
