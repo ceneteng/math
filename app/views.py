@@ -47,6 +47,7 @@ def delcook():
     response.set_cookie('answer',max_age=0)
     response.set_cookie('correct',max_age=0)
     response.set_cookie('counter',max_age=0)
+    response.set_cookie('name',max_age=0)
     return response
 
 @app.route('/cookie', methods=['GET', 'POST'] )
