@@ -43,7 +43,7 @@ def setcook():
     name = request.form['name']
     redirect_to_setup = redirect('/confgame')
     response = app.make_response(redirect_to_setup)
-    response.set_cookie('sessionID', '', expires=0)
+    response.set_cookie(app.session_cookie_name, expires=0)
     response.set_cookie('name', value = name)
     return response
 
