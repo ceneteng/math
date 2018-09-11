@@ -5,7 +5,7 @@
 <br>
 {% block content %}
 
-<h1>In the last round you got {{ lastCorr }} of  {{ lastTot }} problems correct!</h1>
+<h1>{{ name }}, In the last round you got {{ lastCorr }} of  {{ lastTot }} problems correct!</h1>
   <h1>MathFun!</h1>
   <form action="{{ url_for('excook') }}" method="post">
       {{ form.hidden_tag() }}
