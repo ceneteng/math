@@ -101,7 +101,7 @@ def inccook():
 @app.route('/game', methods=['GET', 'POST'])
 def game():
     
-    form = playform()
+    
     checknum = int(request.cookies.get('counter'))
     problems = int(request.cookies.get('problems'))
     prbtype = str(request.cookies.get('prbtype'))
