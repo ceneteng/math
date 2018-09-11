@@ -125,16 +125,16 @@ def game():
             getOp = genbool()
             if getOp == "sub":
                 nums = getnums(ceiling, prbtype)
-                    if nums[0] > nums[1]:
-                        msg = "Subtract {} from {}".format(nums[1], nums[0])
-                        return render_template('game.html', num2=nums[2],
-                                                checknum=checknum, problems = problems, answer=answer,
-                                                msg = msg, form=form)
-                    elif nums[0] < nums[1]:
-                        msg = "Subtract {} from {}".format(nums[0], nums[1])
-                        return render_template('game.html', num2=nums[2],
-                                                checknum=checknum, problems = problems, answer=answer,
-                                                msg = msg, form=form)
+                if nums[0] > nums[1]:
+                    msg = "Subtract {} from {}".format(nums[1], nums[0])
+                    return render_template('game.html', num2=nums[2],
+                                            checknum=checknum, problems = problems, answer=answer,
+                                            msg = msg, form=form)
+                elif nums[0] < nums[1]:
+                    msg = "Subtract {} from {}".format(nums[0], nums[1])
+                    return render_template('game.html', num2=nums[2],
+                                            checknum=checknum, problems = problems, answer=answer,
+                                            msg = msg, form=form)
             else:
                 nums = getnums(ceiling, prbtype)
                 msg = "Add {} and {}".format(nums[0], nums[1])
