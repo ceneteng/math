@@ -1,7 +1,7 @@
 # app/math.py
 import random
 
-def genbool:
+def genbool():
 
 	myChoice = random.choice([True, False])
 	opreturn = ""
