@@ -107,22 +107,23 @@ def game():
     prbtype = str(request.cookies.get('prbtype'))
     ceiling = int(request.cookies.get('ceiling'))
     answer = int(request.cookies.get('answer'))
-    textsub = "Subtract"
-    textadd = "Add {{ num0 }} and {{ num1 }}"
     if checknum < problems:	
         nums = getnums(ceiling, prbtype)
         form = playform(total = nums[2])
         if prbtype == "subtraction":
             if nums[0] > nums[1]:
-                return render_template('game.html', num0=nums[0], num1=nums[1], num2=nums[2],
+                msg = "Subtract $s from $s" % (num[0], num[1])
+                return render_template('game.html', num2=nums[2],
                                         checknum=checknum, problems = problems, answer=answer,
-                                         msg = textsub, form=form)
+                                         msg = msg, form=form)
             elif nums[0] < nums[1]:
-                return render_template('game.html', num0=nums[1], num1=nums[0], num2=nums[2],
+                msg = "Subtract $s from $s" % (num[1], num[0])
+                return render_template('game.html', num2=nums[2],
                                         checknum=checknum, problems = problems, answer=answer,
-                                         msg = textsub, form=form)
+                                         msg = msg, form=form)
         else:
-            return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],
+            msg = "Add $s and $s" % (num[0], num[1])
+            return render_template('game.html',num2=nums[2],
                                     checknum=checknum,problems = problems, answer=answer, msg = textadd,
                                      form=form)
 
