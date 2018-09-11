@@ -44,7 +44,7 @@ def setcook():
     response.set_cookie('name', value = name)
     return response
 
-@app.route('/expcookie', methods=['GET, 'POST'])
+@app.route('/expcookie', methods=['GET', 'POST'])
 def excook():
     problems = request.form['problems']
     prbtype = request.form['prbtype']
