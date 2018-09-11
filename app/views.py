@@ -123,7 +123,7 @@ def game():
                                          msg = textsub, form=form)
         else:
             return render_template('game.html',num0=nums[0],num1=nums[1],num2=nums[2],
-                                    checknum=checknum,problems = problems, answer=answer, 
+                                    checknum=checknum,problems = problems, answer=answer, msg = textadd,
                                     text = textadd, form=form)
 
     else:
