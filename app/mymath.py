@@ -16,7 +16,6 @@ def getnums(numin, prbin):
 			tot = num1-num2
 		else:
 			tot = num2-num1
-	
 
     eq = [num1,num2,tot]
 
