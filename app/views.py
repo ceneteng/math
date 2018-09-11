@@ -107,7 +107,7 @@ def game():
     prbtype = str(request.cookies.get('prbtype'))
     ceiling = int(request.cookies.get('ceiling'))
     answer = int(request.cookies.get('answer'))
-    textsub = "Subtract {{ num0 }} from {{ num1 }}"
+    textsub = "Subtract"
     textadd = "Add {{ num0 }} and {{ num1 }}"
     if checknum < problems:	
         nums = getnums(ceiling, prbtype)
